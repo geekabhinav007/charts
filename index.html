@@ -14,11 +14,13 @@
 
 <body>
 
-    <h1>Performance in Mailing</h1>
+    <h1>Performance in Mailing by Members of Great Developers</h1>
     <div id="chart"></div>
 
     <h1>Performance in Mailing considering both mail and thread Contribution</h1>
+
     <div id="pie-chart"></div>
+
     <h1>Performance in Mailing Demostration using Line Chart</h1>
 
     <div id="line-chart"></div>
@@ -41,7 +43,7 @@
         };
 
         const barChart = new frappe.Chart("#chart", {
-            title: "Last 10 Days Performance",
+            title: "14 Days Performance from 25 Feb Onwards",
             data: data,
             type: 'bar',
             height: 400,
@@ -67,7 +69,7 @@
         };
 
         const areaChart = new frappe.Chart("#line-chart", {
-            title: "Thread Count",
+            title: "14 Days Performance from 25 Feb Onwards",
             data: areaData,
             type: 'axis-mixed',
             lineOptions: {
@@ -96,7 +98,7 @@
         };
 
         const pieChart = new frappe.Chart("#pie-chart", {
-            title: "Thread Count",
+            title: "14 Days Performance from 25 Feb Onwards",
             data: pieData,
             type: 'pie',
             lineOptions: {
