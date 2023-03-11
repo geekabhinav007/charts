@@ -13,35 +13,98 @@
 </head>
 
 <body>
-    <h1>
-        Frappe Chart
-    </h1>
+
+    <h1>Performance in Mailing</h1>
     <div id="chart"></div>
+
+    <h1>Performance in Mailing considering both mail and thread Contribution</h1>
+    <div id="pie-chart"></div>
+    <h1>Performance in Mailing Demostration using Line Chart</h1>
+
+    <div id="line-chart"></div>
+
+
+
     <script>
         const data = {
-    labels: ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
-        "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
-    ],
-    datasets: [
-        {
-            name: "Some Data", type: "bar",
-            values: [25, 40, 30, 35, 8, 52, 17, -4]
-        },
-        {
-            name: "Another Set", type: "line",
-            values: [25, 50, -10, 15, 18, 32, 27, 14]
-        }
-    ]
-}
+            labels: ["H. S. Rai", "Deepak Kumar", "Kumar Abhinav", "Vipin", "Prince", "Nitisha", "JobanPreet Singh", "Manish Sahni"],
+            datasets: [
+                {
+                    name: "Mail Count",
+                    values: [221, 71, 224, 33, 45, 52, 55, 16]
+                },
+                {
+                    name: "Thread Count",
+                    values: [70, 22, 59, 9, 17, 25, 16, 4]
+                }
+            ]
+        };
 
-const chart = new frappe.Chart("#chart", {  // or a DOM element,
-                                            // new Chart() in case of ES6 module with above usage
-    title: "My Awesome Chart",
-    data: data,
-    type: 'axis-mixed', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
-    height: 250,
-    colors: ['#7cd6fd', '#743ee2']
-})
+        const barChart = new frappe.Chart("#chart", {
+            title: "Last 10 Days Performance",
+            data: data,
+            type: 'bar',
+            height: 400,
+            colors: ['#7cd6fd', '#743ee2']
+        });
+
+        const areaData = {
+            labels: ["H. S. Rai", "Deepak Kumar", "Kumar Abhinav", "Vipin", "Prince", "Nitisha", "JobanPreet Singh", "Manish Sahni"],
+            datasets: [
+                {
+                    name: "Mail Count",
+                    values: [221, 71, 224, 33, 45, 52, 55, 16],
+                    type: 'area',
+
+                },
+                {
+                    name: "Thread Count",
+                    values: [70, 22, 59, 9, 17, 25, 16, 4],
+                    type: 'area',
+
+                }
+            ]
+        };
+
+        const areaChart = new frappe.Chart("#line-chart", {
+            title: "Thread Count",
+            data: areaData,
+            type: 'axis-mixed',
+            lineOptions: {
+                regionFill: 1 // default: 0
+            },
+            height: 350,
+            colors: ['#7cd6fd', '#743ee2']
+        });
+
+        const pieData = {
+            labels: ["H. S. Rai", "Deepak Kumar", "Kumar Abhinav", "Vipin", "Prince", "Nitisha", "JobanPreet Singh", "Manish Sahni"],
+            datasets: [
+                {
+                    name: "Mail Count",
+                    values: [221, 71, 224, 33, 45, 52, 55, 16],
+                    type: 'pie',
+
+                },
+                {
+                    name: "Thread Count",
+                    values: [70, 22, 59, 9, 17, 25, 16, 4],
+                    type: 'pie',
+
+                }
+            ]
+        };
+
+        const pieChart = new frappe.Chart("#pie-chart", {
+            title: "Thread Count",
+            data: pieData,
+            type: 'pie',
+            lineOptions: {
+                regionFill: 1 // default: 0
+            },
+            height: 350,
+            colors: ['#7cd6fd', '#743ee2']
+        });
     </script>
 </body>
 
